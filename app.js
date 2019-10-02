@@ -55,3 +55,8 @@ app.listen(post, function(){
     console.log("yelpcamp is started at "+ post);
 });
 
+//for heroku use below cmds for app.listen n port
+app.listen(process.env.PORT, process.env.IP),function(){
+    console.log("app started");
+};
+

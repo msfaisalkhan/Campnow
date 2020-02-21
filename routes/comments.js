@@ -62,7 +62,7 @@ router.get("/campgrounds/:id/comments/:comment_id/edit",middleware.checkCommentO
 
 // update comment 
 router.put("/campgrounds/:id/comments/:comment_id",middleware.checkCommentOwnership, function(req,res){
-    Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment, function(err, updayedComment){
+    Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment, function(err, updatedComment){
         if(err){
             res.redirect("back");
         } else{

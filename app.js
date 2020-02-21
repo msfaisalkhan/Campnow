@@ -16,7 +16,9 @@ var  campgroundRoutes = require("./routes/campgrounds"),
      indexRoutes      = require("./routes/index")
 
 
+//for local mongo
 // mongoose.connect('mongodb://localhost:27017/yelp_camp', {useNewUrlParser: true});
+//for heroku mongo cluster
 mongoose.connect('mongodb+srv://faisal:faisal1234@cluster0-9odkv.mongodb.net/yelp_camp?retryWrites=true&w=majority', {useNewUrlParser: true});
 
 
@@ -25,6 +27,8 @@ app.set("view engine","ejs");
 app.use(express.static(__dirname+ "/public"));
 app.use(methodOverride("_method"));
 app.use(flash());
+//require moment
+app.locals.moment = require('moment');
 // seedDB();       //seed database calling
 
 //PASSPORT Config

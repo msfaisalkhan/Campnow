@@ -1,17 +1,78 @@
-.thumbnail img {
-    width: 100%;
-}
-
 #thumbailinshow{
     padding: 0;
 }
 
 #imgs{
     height: 250px;
+    width: 100%;
 }
 
-.thumbnail .caption-full{
-    padding: 9px;
+.divider1{
+    width: 95px;
+}
+
+.heading1{
+    font-family: 'Times New Roman', Times, serif; 
+    font-size: 63px;
+}
+
+.heading2{
+    font-size: 22px;
+}
+
+.form1{
+    width: 33%; 
+    margin: 25px auto;
+}
+
+.campimg{
+    height: 35em;
+    width: 100%;
+}
+
+.well {
+    background-color: #ecececfa;
+    padding: 3%;
+    border-radius: .5rem;
+}
+
+.content1 {
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: .5rem;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 2em;
+}
+
+.caption-full{
+    padding: 0.8em;
+}
+
+.btn-warning {
+    color: #ffffff;
+    background-color: #f7a209d1;
+    border-color: #ffc107;
+}
+
+@media only screen and (max-width: 600px) {
+    .list1{
+        padding:15px 40px;
+    }
+    .heading1{
+        font-size: 35px;
+    }
+    .heading2{
+        font-size: 16px;
+    }
+    .form1{
+        width: 50%; 
+        margin: 25px auto;
+    }
+    .campimg{
+        height: 22em;
+        width: 100%;
+    }
 }
 
 #delete-form, .delete-form{

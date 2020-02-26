@@ -5,14 +5,30 @@ var middleware = require("../middleware");
 
 //campgrounds routes
 router.get("/",function(req,res){
+    var noMatch = null;
+    if(req.query.search) {
+        const regex = new RegExp(escapeRegex(req.query.search), 'gi');
+        //Get all campgrounds from db
+        Campground.find({name: regex}, function(err, allCampgrounds){
+            if(err){
+                console.log(err);
+            } else {
+                if(allCampgrounds.length < 1) {
+                    noMatch = "No campgrounds match that query, please try again.";
+                }
+                res.render("campgrounds/index",{campgrounds:allCampgrounds, currentUser: req.user, noMatch: noMatch});
+             }
+          });
+    } else {
     //Get all campgrounds from db
     Campground.find({}, function(err, allCampgrounds){
         if(err){
             console.log(err);
         } else{
-            res.render("campgrounds/index",{campgrounds:allCampgrounds, currentUser: req.user});
+            res.render("campgrounds/index",{campgrounds:allCampgrounds, currentUser: req.user,  noMatch: noMatch});
         }
     });
+    }
 });
 
 router.post("/", middleware.isLoggedIn, (req,res)=>{
@@ -93,5 +109,9 @@ router.delete("/:id", middleware.checkCampgroundOwnership, function(req,res){
 //func isloggedin defined here (middleware)
 //middleware authenrication
 //middleware is now in middleware fld 
+
+function escapeRegex(text) {
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+};
 
 module.exports = router;

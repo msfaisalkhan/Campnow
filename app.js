@@ -16,7 +16,7 @@ var  campgroundRoutes = require("./routes/campgrounds"),
      indexRoutes      = require("./routes/index")
 
 
-//for local mongo
+//for local mongo 
 // mongoose.connect('mongodb://localhost:27017/yelp_camp', {useNewUrlParser: true});
 //for heroku mongo cluster
 mongoose.connect('mongodb+srv://faisal:faisal1234@cluster0-9odkv.mongodb.net/yelp_camp?retryWrites=true&w=majority', {useNewUrlParser: true});

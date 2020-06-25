@@ -5,6 +5,7 @@ var User = require("../models/user");
 var Campground = require("../models/campground");
 var middleware = require("../middleware");
 
+
 router.get("/",(req, res)=>{
     res.render("landing");
 });
@@ -76,10 +77,11 @@ router.get("/users/:id", (req,res)=> {
                 res.redirect("/campgrounds");
             }
             res.render("users/show", {user: foundUser, campgrounds: campgrounds});
-        })
-        
+        })  
     });
 });
+
+
 
 //edit user routes
 router.get("/users/:id/edit", middleware.checkUserOwnership, function(req,res){

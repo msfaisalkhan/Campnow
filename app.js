@@ -57,7 +57,7 @@ app.use("/campgrounds", campgroundRoutes);
 app.use(commentRoutes);
 
 
-
+//for localhost
 // var post = process.env.port || 3000;
 // app.listen(post, function(){
 //     console.log("yelpcamp is started at "+ post);
